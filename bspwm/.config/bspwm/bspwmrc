@@ -1,0 +1,52 @@
+#!/bin/bash
+
+export XDG_CURRENT_DESKTOP=bspwm
+export WM=bspwm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+xrdb -merge ~/.Xresources
+sxhkd -m 1 > /tmp/sxhkd.log 2> /tmp/sxhkd2.log &
+
+bspc monitor -d 1 2 3 4 5 Q W E R T
+
+# apps
+bspc rule -a Firefox desktop=^9
+bspc rule -a Chromium desktop=^9
+bspc rule -a Emacs state=tiled
+bspc rule -a Zathura state=tiled
+bspc rule -a discord desktop=^10
+
+bspc config border_width 3
+bspc config focused_border_color "#3C096C"
+bspc config active_border_color "#3C096C"
+bspc config normal_border_color "#240046"
+bspc config window_gap 15
+
+bspc config split_ratio 0.4
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc config click_to_focus button1
+
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_corner
+
+bspc config automatic_scheme spiral
+
+xsetroot -cursor_name left_ptr
+hsetroot -fill ~/Pictures/wallpaper.jpg
+polybar -r bar1 &
+setxkbmap -layout no
+xinput --set-prop 'pointer:Kingston HyperX Pulsefire Core' 'libinput Accel Speed' -0.9
+
+dunst &
+set_wmname LG3D
+
+xrandr --output 'HDMI-A-1' --primary
+numlockx on
+chromium --enable-features=WebUIDarkMode --force-dark-mode &
+discord-canary &
+echo "Starting picom">/tmp/picom.log
+pgrep -u "$USER" picom >/dev/null || \
+	picom -bc -o 0.2 -r 0 -l 5 -t 5 >>/tmp/picom.log 2>&1

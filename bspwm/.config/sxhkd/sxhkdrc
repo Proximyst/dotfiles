@@ -1,0 +1,113 @@
+# super = windows button
+
+# open terminal emulator
+super + Return
+#	kitty
+	alacritty
+
+# open fallback terminal emulator
+super + shift + control + Return
+	st
+
+# open browser
+super + b
+	chromium --enable-features=WebUIDarkMode --force-dark-mode
+
+# open program launcher
+super + d
+	rofi -lines 16 -padding 30 -width 45 -location 0 -show drun -sidebar-mode -columns 3 -theme gruvbox-dark-hard
+
+# reload sxhkd keys
+super + Escape
+	pkill -USR1 -x sxhkd
+
+XF86Audio{Prev,Next,Play}
+	playerctl {previous,next,play-pause}
+
+XF86Audio{Lower,Raise}Volume
+	amixer -q -D pulse sset Master 5%{-,+}
+
+XF86AudioMute
+	amixer -D pulse set Master 1+ toggle
+
+@Print
+	scrot -ozfse 'owou $f' /tmp/screenshot.png
+
+shift + Print
+	scrot -ozfe 'owou $f' /tmp/screenshot.png
+
+#
+# lock screen
+#
+
+super + Scroll_Lock
+	lock.sh
+
+#
+# bspwm
+#
+
+# quit bspwm altogether
+super + shift + 0
+	bspc quit
+
+# close then kill focused app
+super + {_,shift + }c
+	bspc node -{c,k}
+
+#
+# focusing
+#
+
+super + {_,shift +}{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+super + {_,shift + }{1-5,q,w,e,r,t}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#super + {_, shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{1-9,10}'
+#
+## Eww but it works...
+#super + control + {_, shift + }{1-9,0}
+#	bspc {desktop -f,node -d} '^{11,12,13,14,15,16,17,18,19,20}'
+
+#
+# mouse
+#
+
+~button1
+	bspc pointer -g focus
+
+#
+# state
+#
+
+super + {y,shift + y,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + m
+	bspc desktop -l next
+
+#
+# move/resize
+#
+
+# resize
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# resize other way
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move
+super + control + {l,j,k,h}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# swap newest marked node with newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
