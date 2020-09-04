@@ -4,4 +4,10 @@ These are my so-called link:https://en.wikipedia.org/wiki/Dotfile[*dotfiles*].
 
 I provide no guarantee they will work out of the box on your system.
 
+ifdef::env-github[]
+image:https://img.youtube.com/vi/c2X9Dj3ZYRA/maxresdefault.jpg[link=https://youtu.be/c2X9Dj3ZYRA]
+endif::[]
+
+ifndef::env-github[]
 video::c2X9Dj3ZYRA[youtube]
+endif::[]
