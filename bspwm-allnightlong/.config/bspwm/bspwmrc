@@ -35,7 +35,7 @@ bspc config pointer_action2 resize_corner
 bspc config automatic_scheme spiral
 
 xsetroot -cursor_name left_ptr
-hsetroot -fill ~/Pictures/wallpaper.jpg
+hsetroot -fill ~/.config/bspwm/tony-skeor-allnightlong.jpg
 polybar -r bar1 &
 setxkbmap -layout no
 xinput --set-prop 'pointer:Kingston HyperX Pulsefire Core' 'libinput Accel Speed' -0.9
