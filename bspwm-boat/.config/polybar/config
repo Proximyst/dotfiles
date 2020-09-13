@@ -1,0 +1,171 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #DEE2E6
+background-alt = #FEFBF6
+foreground = #212529
+foreground-alt = #212529
+primary = #E9ECEF
+secondary = #DEE2E6
+third = #CED4DA
+alert = #6C757D
+
+[bar/bar1]
+width = 50%
+height = 16
+offset-x = 25%
+offset-y = 0
+radius = 1.0
+fixed-center = true
+psuedo-transparency = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+border-color = #FF000000
+
+padding-left = 0
+padding-right = 1
+spacing = 4
+
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = Source Code Pro for Powerline:pixelsize=8;0
+font-1 = FontAwesome:size=8;-2
+font-2 = siji:pixelsize=8;0
+
+modules-left = bspwm xwindow
+modules-center =
+modules-right = filesystem pulseaudio wlan memory cpu utcdate date
+
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% umnt
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-background = ${colors.third}
+label-focused-padding = 2
+
+label-occupied = %name%
+label-occupied-padding = 2
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-background = ${colors.background-alt}
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = C%percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = M%percentage_used:2%%
+
+[module/wlan]
+type = internal/network
+interface = wlp7s0f3u2
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected = %essid%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%a %d"
+date-alt = " %Y-%m-%d"
+
+time = "%H:%M:%S"
+time-alt = "%H:%M:%S"
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = "%date% %time%"
+
+[module/utcdate]
+type = custom/script
+interval = 5
+format = <label>
+exec = date -u '+%H:%M'
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
