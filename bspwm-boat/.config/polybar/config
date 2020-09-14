@@ -98,7 +98,7 @@ label-empty-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = %{T2}🤖%{T-} %percentage:2%%
+label = %{T2}🤖%{T-}%percentage:2%%
 
 [module/memory]
 type = internal/memory
