@@ -44,4 +44,4 @@ chromium
 discord-canary &
 echo "Starting picom">/tmp/picom.log
 pgrep -u "$USER" picom >/dev/null || \
-	picom -bc --shadow-exclude 'class_g = "polybar"' -o 0.2 -r 0 -l 5 -t 5 >>/tmp/picom.log 2>&1
+	picom -bc --shadow-exclude 'class_g = "Polybar"' -o 0.2 -r 0 -l 5 -t 5 >>/tmp/picom.log 2>&1
