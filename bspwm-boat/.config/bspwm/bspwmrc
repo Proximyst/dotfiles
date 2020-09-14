@@ -10,11 +10,10 @@ sxhkd -m 1 > /tmp/sxhkd.log 2> /tmp/sxhkd2.log &
 bspc monitor -d 1 2 3 4 5 Q W E R T
 
 # apps
-bspc rule -a Firefox desktop=^9
 bspc rule -a Chromium desktop=^9
-bspc rule -a Emacs state=tiled
-bspc rule -a Zathura state=tiled
+bspc rule -a Zathura state=tiled desktop=2
 bspc rule -a discord desktop=^10
+bspc rule -a intellij desktop=^8
 
 bspc config window_gap 15
 
@@ -45,4 +44,4 @@ chromium
 discord-canary &
 echo "Starting picom">/tmp/picom.log
 pgrep -u "$USER" picom >/dev/null || \
-	picom -bc -o 0.2 -r 0 -l 5 -t 5 >>/tmp/picom.log 2>&1
+	picom -bc --shadow-exclude 'class_g = "polybar"' -o 0.2 -r 0 -l 5 -t 5 >>/tmp/picom.log 2>&1
