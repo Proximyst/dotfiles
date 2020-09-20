@@ -24,11 +24,13 @@ super + Escape
 XF86Audio{Prev,Next,Play}
 	playerctl {previous,next,play-pause}
 
+# I use pactl instead of amixer as it was easier.
+# pulse is just a pipe into alsa anyways.
 XF86Audio{Lower,Raise}Volume
-	amixer -q -D pulse sset Master 5%{-,+}
+	pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 XF86AudioMute
-	amixer -D pulse set Master 1+ toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 @Print
 	scrot -ozfse 'owou $f' /tmp/screenshot.png
@@ -62,7 +64,7 @@ super + {_,shift + }c
 super + {_,shift +}{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-super + {p,b,comma,period}
+super + {p,v,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 super + {_,shift + }{1-5,q,w,e,r,t}

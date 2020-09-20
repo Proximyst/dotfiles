@@ -11,4 +11,4 @@ fi
 export XCURSOR_PATH=$HOME/.icons/themes
 
 cd ~
-exec bspwm
+exec dbus-launch --sh-syntax --exit-with-session bspwm

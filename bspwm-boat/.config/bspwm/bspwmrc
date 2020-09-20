@@ -40,7 +40,7 @@ set_wmname LG3D
 
 xrandr --output 'HDMI-A-1' --primary
 numlockx on
-chromium
+chromium &
 discord-canary &
 echo "Starting picom">/tmp/picom.log
 pgrep -u "$USER" picom >/dev/null || \

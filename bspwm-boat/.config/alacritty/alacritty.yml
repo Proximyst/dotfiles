@@ -13,6 +13,9 @@
   #TERM: xterm-256color
 
 window:
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -132,7 +135,7 @@ colors:
   primary:
     #    background: '0x1c1c1c'
     background: '0xE9ECEF'
-    foreground: '0x6C757D'
+    foreground: '0x5C5C5C'
 
     # Bright and dim foreground colors
     #
@@ -166,9 +169,9 @@ colors:
   normal:
     black:   '0x000000'
     red:     '0xD11648'
-    green:   '0x31C68B'
-    yellow:  '0xECA009'
-    blue:    '0x493AEA'
+    green:   '0x259367'
+    yellow:  '0xD99308'
+    blue:    '0x2817DE'
     magenta: '0x9D4EDD'
     cyan:    '0x49C8D6'
     white:   '0xADB5BD'
@@ -176,12 +179,12 @@ colors:
   # Bright colors
   bright:
     black:   '0x7B2CBF'
-    red:     '0xE71691'
-    green:   '0x5EC6A3'
-    yellow:  '0xF7B226'
-    blue:    '0x643AF1'
+    red:     '0xE82632'
+    green:   '0x9CD07B'
+    yellow:  '0xFBD589'
+    blue:    '0x3F2DF0'
     magenta: '0xC77DFF'
-    cyan:    '0xE84CF4'
+    cyan:    '0x97B8C7'
     white:   '0xCED4DA'
 
   # Dim colors
@@ -229,7 +232,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
@@ -297,9 +300,6 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: false
-
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
 
 cursor:
   # Cursor style
