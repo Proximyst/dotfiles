@@ -66,7 +66,7 @@ if dein#load_state('$HOME/.config/nvim/dein')
 	" Colour themes
 "	call dein#add('yassinebridi/vim-purpura') " For vim theme
 "	call dein#add('Rigellute/shades-of-purple.vim') " For lightline
-	call dein#add('nlknguyen/papercolor-theme')
+	call dein#add('lifepillar/vim-solarized8')
 
 	call dein#end()
 	call dein#save_state()
@@ -194,7 +194,7 @@ set shiftwidth=4
 let mapleader = " "
 
 let g:lightline = {
-	\ 'colorscheme': 'PaperColor',
+	\ 'colorscheme': 'solarized',
 	\ 'active': {
 	\ 	'left': [
 	\ 		[ 'mode', 'paste' ],
@@ -343,8 +343,8 @@ nnoremap <Leader>ml :call Modeline()<CR>
 " Uncomment if gruvbox is used.
 "let g:gruvbox_italic=1
 
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme solarized8_low
 
 "                 &&& & &   	
 "            &    &&&&&  &  &  &   	
