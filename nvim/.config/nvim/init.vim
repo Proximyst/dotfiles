@@ -60,6 +60,9 @@ if dein#load_state('$HOME/.config/nvim/dein')
 	" LaTeX
 	call dein#add('xuhdev/vim-latex-live-preview')
 
+	" Lua
+	call dein#add('tbastos/vim-lua')
+
 	" Colour themes
 "	call dein#add('yassinebridi/vim-purpura') " For vim theme
 "	call dein#add('Rigellute/shades-of-purple.vim') " For lightline
