@@ -68,6 +68,14 @@ if dein#load_state('$HOME/.config/nvim/dein')
 "	call dein#add('Rigellute/shades-of-purple.vim') " For lightline
 	call dein#add('lifepillar/vim-solarized8')
 
+	call dein#add('machakann/vim-highlightedyank')
+
+	call dein#add('uarun/vim-protobuf')
+
+	call dein#add('dylanaraps/root.vim')
+
+	call dein#add('lifepillar/pgsql.vim')
+
 	call dein#end()
 	call dein#save_state()
 endif
@@ -193,6 +201,9 @@ set shiftwidth=4
 " Use <SPACE> as <Leader>.
 let mapleader = " "
 
+let g:root#auto = 1
+let g:root#echo = 0
+
 let g:lightline = {
 	\ 'colorscheme': 'solarized',
 	\ 'active': {
@@ -216,6 +227,8 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0 
 
 let g:context_add_mappings = 0
+
+let g:sql_type_default = 'pgsql'
 
 " Commands to use specific indentation style
 command! -nargs=1 Spaces execute "setlocal tabstop=" . <args> . " shiftwidth=" . <args> . " softtabstop=" . <args> . " expandtab" | setlocal ts? sw? sts?
@@ -343,7 +356,7 @@ nnoremap <Leader>ml :call Modeline()<CR>
 " Uncomment if gruvbox is used.
 "let g:gruvbox_italic=1
 
-set background=dark
+set background=light
 colorscheme solarized8_low
 
 "                 &&& & &   	

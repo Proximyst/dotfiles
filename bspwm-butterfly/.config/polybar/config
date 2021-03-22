@@ -18,14 +18,14 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #073642
-background-alt = #002b36
-foreground = #839496
-foreground-alt = #93a1a1
-primary = #586e75
-secondary = #657b83
-third = #083e4c
-alert = #268bd2
+background = #FAC9B8
+background-alt = #F0CFBC
+foreground = #495159
+foreground-alt = #495159
+primary = #2F3E45
+secondary = #1C262B
+third = #E5D4C0
+alert = #6194AD
 
 [bar/bar1]
 monitor = ${env:MONITOR:}

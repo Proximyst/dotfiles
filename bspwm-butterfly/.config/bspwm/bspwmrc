@@ -37,7 +37,7 @@ bspc config normal_border_color "#002b36"
 bspc config automatic_scheme spiral
 
 xsetroot -cursor_name left_ptr
-hsetroot -fill ~/.config/bspwm/_tyedied-wormhole.jpg
+hsetroot -fill ~/.config/bspwm/pink-flowers.jpg
 setxkbmap -layout se
 xinput --set-prop 'pointer:Kingston HyperX Pulsefire Core' 'libinput Accel Speed' -0.8
 
@@ -48,7 +48,7 @@ done
 dunst &
 wmname LG3D
 
-xrandr --output 'DisplayPort-1' --primary
+xrandr --output 'DP-0' --primary
 numlockx on
 firefox &
 discord-canary &

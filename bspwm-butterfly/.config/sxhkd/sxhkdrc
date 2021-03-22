@@ -15,7 +15,7 @@ super + b
 
 # open program launcher
 super + d
-	rofi -modi window,run,drun -lines 16 -padding 30 -width 45 -location 0 -show drun -sidebar-mode -columns 3 -theme solarized -monitor -1
+	rofi -modi window,run,drun -lines 16 -padding 30 -width 45 -location 0 -show drun -sidebar-mode -columns 3 -theme base16-solarized-light -monitor -1
 
 # reload sxhkd keys
 super + Escape
