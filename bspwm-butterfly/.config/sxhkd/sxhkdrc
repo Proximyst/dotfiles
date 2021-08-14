@@ -2,12 +2,7 @@
 
 # open terminal emulator
 super + Return
-#	kitty
 	alacritty
-
-# open fallback terminal emulator
-super + shift + control + Return
-	st
 
 # open browser
 super + b

@@ -4,11 +4,8 @@ if dein#load_state('$HOME/.config/nvim/dein')
 	call dein#begin('$HOME/.config/nvim/dein')
 	call dein#add('$HOME/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
-	" A file finder to unite interfaces asynchronously.
-	call dein#add('Shougo/denite.nvim')
-
 	" Asynchronous linting of text.
-	call dein#add('w0rp/ale')
+	call dein#add('dense-analysis/ale')
 
 	" Time measurement when editing files.
 	call dein#add('wakatime/vim-wakatime')
@@ -27,7 +24,10 @@ if dein#load_state('$HOME/.config/nvim/dein')
 	call dein#add('cespare/vim-toml', { 'on_ft': 'toml' })
 
 	" Live Markdown preview powered by Rust.
-	call dein#add('euclio/vim-markdown-composer', { 'on_ft': 'markdown', 'build': 'cargo build --release', 'merged': 0 })
+	call dein#add('euclio/vim-markdown-composer',
+				\ { 'on_ft': 'markdown',
+				\   'build': 'cargo build --release',
+				\    'merged': 0 })
 
 	" Markdown language support.
 	call dein#add('plasticboy/vim-markdown', { 'on_ft': 'markdown' })
@@ -62,6 +62,9 @@ if dein#load_state('$HOME/.config/nvim/dein')
 
 	" Lua
 	call dein#add('tbastos/vim-lua')
+
+	" Elixir
+	call dein#add('elixir-editors/vim-elixir')
 
 	" Colour themes
 "	call dein#add('yassinebridi/vim-purpura') " For vim theme
@@ -358,6 +361,7 @@ nnoremap <Leader>ml :call Modeline()<CR>
 
 set background=light
 colorscheme solarized8_low
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 "                 &&& & &   	
 "            &    &&&&&  &  &  &   	

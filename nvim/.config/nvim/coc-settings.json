@@ -1,45 +1,7 @@
 {
-  "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "clangd": {
-      "command": "clangd",
-      "args": ["--background-index"],
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
-    },
-    "dlang": {
-      "command": "~/.dub/packages/.bin/dls-latest/dls",
-      "filetypes": ["d"]
-    },
-    "haskell": {
-      "command": "hie-wrapper",
-      "rootPatterns": [
-        ".stack.yaml",
-        "cabal.config",
-        "package.yaml"
-      ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ],
-      "initializationOptions": {
-        "languageServerHaskell": {
-        }
-      }
-    },
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"]
-    }
-  },
-  "rust.all_targets": false,
   "html.format.enable": true,
-  "python.jediEnabled": true
+  "python.jediEnabled": true,
+  "diagnostic.displayByAle": true,
+  "codeLens.enable": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

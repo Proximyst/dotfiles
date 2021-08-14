@@ -8,7 +8,7 @@ xrdb -merge ~/.Xresources
 sxhkd -m 1 > /tmp/sxhkd.log 2> /tmp/sxhkd2.log &
 
 bspc monitor DP-0 -d Q W E R T
-bspc monitor HDMI-0 -d 1 2 3 4 5
+bspc monitor DP-2 -d 1 2 3 4 5
 
 # apps
 bspc rule -a Chromium desktop=^9
@@ -39,7 +39,8 @@ bspc config automatic_scheme spiral
 xsetroot -cursor_name left_ptr
 hsetroot -fill ~/.config/bspwm/pink-flowers.jpg
 setxkbmap -layout se
-xinput --set-prop 'pointer:Kingston HyperX Pulsefire Core' 'libinput Accel Speed' -0.8
+#xinput --set-prop 'pointer:Kingston HyperX Pulsefire Core' 'libinput Accel Speed' -0.8
+xinput --set-prop 'pointer:Cooler Master Technology Inc. MM710 Gaming Mouse' 'libinput Accel Speed' -0.96
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar -r bar1 &
@@ -48,7 +49,7 @@ done
 dunst &
 wmname LG3D
 
-xrandr --output 'DP-0' --primary
+xrandr --output 'DP-2' --primary
 numlockx on
 firefox &
 discord-canary &
