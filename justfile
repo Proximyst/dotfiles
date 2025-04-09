@@ -11,3 +11,5 @@ copy-system:
 
     rm -rf ./etc/clamav
     cp -r /etc/clamav/ ./etc
+
+    cp /etc/sddm.conf ./etc
