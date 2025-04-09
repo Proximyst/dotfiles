@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+if [[ ! $(pidof hyprlock) ]]; then
+	hyprctl exec hyprlock
+fi
+systemctl suspend

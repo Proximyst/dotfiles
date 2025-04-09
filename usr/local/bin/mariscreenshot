@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# avoid herbstluftwm bug
+sleep 0.1
+exec maim -us | xclip -selection clipboard -t image/png

@@ -1,0 +1,11 @@
+[Unit]
+Description=Monthly ClamAV virus scan
+
+[Timer]
+OnCalendar=monthly
+AccuracySec=1h
+RandomizedDelaySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

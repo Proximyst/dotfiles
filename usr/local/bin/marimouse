@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+set_mouse() {
+	name="$1"
+	accel="$2"
+	for id in $(xinput list --short | grep pointer | grep "$name" | perl -ne 'while (m/id=(\d+)/g) { print "$1\n"; }'); do
+		xinput --set-prop "$id" 'libinput Accel Speed' "$accel" --type=float --format=32
+	done
+}
+set_mouse 'Logitech G Pro' '-0.7'
