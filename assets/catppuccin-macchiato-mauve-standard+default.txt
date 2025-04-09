@@ -1,0 +1,2 @@
+Source: https://github.com/catppuccin/gtk -- release v1.0.3
+Licence: GPL-3.0

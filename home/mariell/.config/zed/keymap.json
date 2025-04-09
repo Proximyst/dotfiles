@@ -1,0 +1,38 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "(Workspace && (vim_mode == null || vim_mode == normal)) || (vim_mode == normal && !menu)",
+    "bindings": {
+      "space tab": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {}
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "space w": "workspace::Save",
+      "space s": ["workspace::SendKeystrokes", "\" +"],
+      "space r n": "editor::Rename",
+      "space f": "editor::Format",
+      "space a c": "editor::ToggleCodeActions",
+      "space d j": "editor::GoToDiagnostic",
+      "space d k": "editor::GoToPrevDiagnostic",
+      "space t": "workspace::NewTerminal",
+      "space g r": "project_search::ToggleFocus",
+      "space j": ["workspace::SendKeystrokes", "ctrl-w j"],
+      "space k": ["workspace::SendKeystrokes", "ctrl-w k"],
+      "space l": ["workspace::SendKeystrokes", "ctrl-w l"],
+      "space h": ["workspace::SendKeystrokes", "ctrl-w h"],
+      "space ö": "editor::ShowEditPrediction"
+    }
+  }
+]

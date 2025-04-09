@@ -1,0 +1,12 @@
+[submodule "submodules/bat"]
+	path = submodules/bat
+	url = git@github.com:catppuccin/bat.git
+[submodule "submodules/gtk"]
+	path = submodules/gtk
+	url = git@github.com:catppuccin/gtk.git
+[submodule "submodules/hyprland"]
+	path = submodules/hyprland
+	url = git@github.com:catppuccin/hyprland.git
+[submodule "submodules/wofi"]
+	path = submodules/wofi
+	url = git@github.com:quantumfate/wofi.git

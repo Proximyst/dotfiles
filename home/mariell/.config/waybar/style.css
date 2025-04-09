@@ -1,0 +1,153 @@
+/* https://github.com/catppuccin/waybar/blob/main/themes/macchiato.css */
+@define-color rosewater #f4dbd6;
+@define-color flamingo #f0c6c6;
+@define-color pink #f5bde6;
+@define-color mauve #c6a0f6;
+@define-color red #ed8796;
+@define-color maroon #ee99a0;
+@define-color peach #f5a97f;
+@define-color yellow #eed49f;
+@define-color green #a6da95;
+@define-color teal #8bd5ca;
+@define-color sky #91d7e3;
+@define-color sapphire #7dc4e4;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color text #cad3f5;
+@define-color subtext1 #b8c0e0;
+@define-color subtext0 #a5adcb;
+@define-color overlay2 #939ab7;
+@define-color overlay1 #8087a2;
+@define-color overlay0 #6e738d;
+@define-color surface2 #5b6078;
+@define-color surface1 #494d64;
+@define-color surface0 #363a4f;
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+
+* {
+  font-size: 16px;
+  font-family: "Noto Sans NerdFont", "Noto Sans", "Font Awesome 6 Solid", "Font Awesome 6 Free", "Noto Emoji Color";
+}
+
+window#waybar {
+  all: unset;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 7px;
+  padding: 5px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  background: alpha(@base, 0.5);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+#clock {
+  color: @text;
+}
+
+#custom-pacman {
+  color: @text;
+}
+
+#workspaces button {
+  all: unset;
+  padding: 0px 5px;
+  color: alpha(@text, 0.4);
+  transition: all 0.2s ease;
+}
+#workspaces button:hover {
+  color: @pink;
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+  transition: all 1s ease;
+}
+#workspaces button.active {
+  color: @sky;
+  border: none;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+#battery {
+  transition: all 0.3s ease;
+  color: @text;
+}
+#battery.charging {
+  color: @green;
+}
+#battery.plugged {
+  color: @green;
+}
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#tray {
+  transition: all 0.3s ease;
+}
+#tray menu * {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+}
+#tray menu separator {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+}
+
+#network.ethernet, #network.wifi {
+  color: @sky;
+}
+#network.linked {
+  color: @yellow;
+}
+#network.disconnected {
+  color: @pink;
+}
+
+#network,
+#battery,
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#custom-pacman,
+#custom-media,
+#custom-github,
+#wireplumber,
+#tray {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @text;
+}
+
+tooltip {
+  background: @base;
+  color: @text;
+}
+
+#clock:hover,
+#wireplumber:hover,
+#wireplumber button:hover,
+#network:hover,
+#network button:hover,
+#custom-pacman:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#custom-media:hover,
+#custom-github:hover {
+  transition: all 0.3s ease;
+  color: @pink;
+}

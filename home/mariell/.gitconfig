@@ -1,0 +1,39 @@
+[include]
+	path = ~/work/delta/catppuccin.gitconfig
+[delta]
+	features = catppuccin-macchiato
+	navigate = true
+[core]
+	pager = delta
+	excludesFile = ~/.config/git/ignore
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = diff3
+[user]
+	name = Mariell Hoversholm
+	email = mariell.hoversholm@grafana.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZH/XGiekIygK4UUTUZPR657oy9Z6lYjiJzREOaEEcd
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[diff]
+	colormoved = zebra
+	algorithm = histogram
+[blame]
+	pager = delta
+[checkout]
+	workers = 0
+[pack]
+	writeReverseIndex = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[feature]
+	manyFiles = true
+[lfs]
+	locksverify = false
+[push]
+	autoSetupRemote = true

@@ -1,0 +1,4 @@
+show=drun
+term=wezterm
+insensitive=true
+allow_images=true

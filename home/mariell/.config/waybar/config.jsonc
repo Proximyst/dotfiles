@@ -1,0 +1,139 @@
+// -*- mode: jsonc -*-
+{
+    "reload_style_on_change": true, // debugging
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 2880, // Waybar width
+    // "spacing": 8, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "clock",
+        "custom/pacman",
+        "custom/github",
+        "tray"
+    ],
+    "modules-center": [
+        // "hyprland/workspaces"
+        "niri/workspaces"
+    ],
+    "modules-right": [
+        "custom/media",
+        "cpu",
+        "memory",
+        "wireplumber",
+        "network",
+        "battery"
+    ],
+    // Left
+    "clock": {
+        "tooltip-format": "{:%a %d %b %H:%M:%S %Z}",
+        "format": "{:%H:%M:%S} ",
+        "interval": 1
+    },
+    "custom/pacman": {
+        "format": "󰅢  {}",
+        "interval": 300,
+        "exec": "checkupdates | wc -l",
+        "signal": 8,
+        "tooltip": false
+    },
+    "custom/github": {
+        "format": "{}",
+        "escape": true,
+        "interval": 30,
+        "exec": "~/.config/waybar/github.sh",
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    // Center
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        }
+    },
+    // Right
+    "custom/media": {
+        "format": "{}",
+        "max-length": 40,
+        "escape": true,
+        "interval": 10,
+        "exec": "~/.config/waybar/media.sh",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 5
+    },
+    "memory": {
+        "format": " {used:0.1f}GiB",
+        "interval": 5,
+        "tooltip": false
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": [
+            " ",
+            " ",
+            " "
+        ],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pwvucontrol",
+        "reverse-scrolling": 1
+    },
+    "network": {
+        "interval": 30,
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} {ipaddr} 🖧",
+        "on-click": "wezterm start nmtui"
+    },
+    "battery": {
+        "interval": 30, // super accurate isn't useful, especially when it's high, and draining when it's low...
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰂄 ",
+        "format-icons": [
+            "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+        ]
+    }
+}

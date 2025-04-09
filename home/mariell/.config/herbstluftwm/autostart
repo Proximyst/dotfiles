@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+# this is a simple config for herbstluftwm
+
+hc() {
+    herbstclient "$@"
+}
+
+hc emit_hook reload
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc keyunbind --all
+hc mouseunbind --all
+hc unrule --all
+
+hc set frame_border_active_color '#ed8796'
+hc set frame_border_normal_color '#181926'
+hc set show_frame_decorations 'focused_if_multiple'
+
+tag_names=( {1..9} )
+tag_keys=( {1..9} 0 )
+
+Mod=Mod4
+hc rename default "${tag_names[0]}" || true
+for i in "${!tag_names[@]}" ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if [ -n "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+
+hc keybind $Mod-q close
+hc keybind $Mod-r remove
+hc keybind $Mod-Return spawn wezterm
+hc keybind $Mod-Shift-Return spawn xterm
+hc keybind $Mod-b spawn firefox
+hc keybind $Mod-d spawn rofi -show drun
+hc keybind $Mod-Shift-s spawn mariscreenshot
+hc keybind $Mod-Shift-Ctrl-l spawn marilock
+hc keybind $Mod-Shift-Ctrl-odiaeresis spawn xsecurelock
+hc keybind XF86Display spawn autorandr -c
+hc keybind $Mod-Shift-d spawn autorandr -c
+hc keybind $Mod-l focus right
+hc keybind $Mod-k focus up
+hc keybind $Mod-j focus down
+hc keybind $Mod-h focus left
+hc keybind $Mod-Shift-l shift right
+hc keybind $Mod-Shift-k shift up
+hc keybind $Mod-Shift-j shift down
+hc keybind $Mod-Shift-h shift left
+hc keybind $Mod-u split bottom 0.5
+hc keybind $Mod-o split right 0.5
+hc keybind $Mod-Ctrl-space split explode
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-space or , and . compare tags.focus.curframe_wcount = 2 . cycle_layout +1 vertical horizontal max vertical grid , cycle_layout +1
+hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+hc keybind XF86AudioMicMute spawn pactl set-source-mute @DEFAULT_SINK@ toggle
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
+hc keybind XF86MonBrightnessDown spawn xbacklight -dec 5
+hc keybind XF86MonBrightnessUp spawn xbacklight -inc 5
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+
+# focus new windows by default
+hc rule focus=on
+# now for the rest...
+#hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule class=Spotify focus=off tag=4
+hc rule class=tidal-hifi focus=off tag=4
+hc rule class=Slack focus=off tag=2
+hc rule class=zoom focus=off tag=2
+hc rule class=firefox focus=off tag=1
+
+autorandr -c
+xrdb -merge ~/.Xresources
+xsetroot -cursor_name left_ptr
+hc spawn polybar -r top &
+marimouse &
+hc spawn firefox &
+mariwallpaper &
+hc spawn slack &
+# hc spawn spotify &
+hc spawn tidal-hifi &
+
+hc unlock
+hc chain ";" "$@"
