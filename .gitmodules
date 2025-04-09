@@ -10,3 +10,6 @@
 [submodule "submodules/wofi"]
 	path = submodules/wofi
 	url = git@github.com:quantumfate/wofi.git
+[submodule "submodules/delta"]
+	path = submodules/delta
+	url = git@github.com:catppuccin/delta.git

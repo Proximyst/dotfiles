@@ -1,5 +1,5 @@
 [include]
-	path = ~/work/delta/catppuccin.gitconfig
+	path = ~/work/dotfiles/submodules/delta/catppuccin.gitconfig
 [delta]
 	features = catppuccin-macchiato
 	navigate = true
