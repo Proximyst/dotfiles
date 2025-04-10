@@ -2,3 +2,5 @@
 themes/
 functions/_*
 completions/
+# Generated
+fish_variables
