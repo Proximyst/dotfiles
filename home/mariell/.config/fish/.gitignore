@@ -4,3 +4,4 @@ functions/_*
 completions/
 # Generated
 fish_variables
+fishd.tmp.*
