@@ -13,7 +13,7 @@
 [user]
 	name = Mariell Hoversholm
 	email = mariell.hoversholm@grafana.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZH/XGiekIygK4UUTUZPR657oy9Z6lYjiJzREOaEEcd
+	signingkey = /home/mariell/.ssh/id_ed25519.pub
 [init]
 	defaultBranch = main
 [pull]
@@ -27,8 +27,6 @@
 	workers = 0
 [pack]
 	writeReverseIndex = true
-[gpg]
-	format = ssh
 [commit]
 	gpgsign = true
 [feature]
@@ -37,3 +35,5 @@
 	locksverify = false
 [push]
 	autoSetupRemote = true
+[gpg]
+	format = ssh
