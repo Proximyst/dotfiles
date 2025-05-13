@@ -277,6 +277,7 @@ spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
 spawn-at-startup "mako"
 spawn-at-startup "swaybg" "-i" "/home/mariell/.config/niri/geiranger.jpg" "-m" "fill"
+spawn-at-startup "1password" "--silent"
 
 environment {
     DISPLAY ":0"
@@ -624,6 +625,13 @@ window-rule {
         inactive-color "#7d0d2d"
     }
 }
+
+// This is just cute:
+//window-rule {
+//    match is-floating=true
+//
+//    baba-is-float true
+//}
 
 debug {
     // preview-render "screencast"
