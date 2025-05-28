@@ -1,2 +1,4 @@
 .venv/
 __debug_bin*
+# drone-graph output
+.drone.yml.svg
