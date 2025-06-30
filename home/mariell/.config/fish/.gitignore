@@ -5,3 +5,4 @@ completions/
 # Generated
 fish_variables
 fishd.tmp.*
+_*.fish

@@ -103,11 +103,13 @@ output "eDP-1" {
 }
 
 output "GIGA-BYTE TECHNOLOGY CO., LTD. M32UC 24340B005450" {
-    off
     mode "3840x2160@144"
     scale 1
     transform "normal"
     position x=0 y=0
+}
+
+output "DP-1" {
 }
 
 switch-events {
