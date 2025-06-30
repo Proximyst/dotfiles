@@ -1,5 +1,3 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
@@ -103,7 +101,7 @@ output "eDP-1" {
 }
 
 output "GIGA-BYTE TECHNOLOGY CO., LTD. M32UC 24340B005450" {
-    mode "3840x2160@144"
+    mode "3840x2160@120"
     scale 1
     transform "normal"
     position x=0 y=0
