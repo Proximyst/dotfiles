@@ -76,8 +76,10 @@ abbr --add knc 'kubens --current'
 abbr --add calc fend
 abbr --add ts tailscale
 
-abbr --add cg 'cd ~/work/grafana'
-abbr --add cge 'cd ~/work/grafana-enterprise'
+if test -d "$HOME/work/grafana"
+    abbr --add cg 'cd ~/work/grafana'
+    abbr --add cge 'cd ~/work/grafana-enterprise'
+end
 
 #set -g async_prompt_functions _pure_prompt_git
 set fish_greeting
@@ -92,6 +94,9 @@ fzf_configure_bindings --directory=\cf --git_log= --git_status=\cs --processes= 
 set fzf_diff_highlighter delta --paging=never --width=100
 set fzf_directory_opts --bind "ctrl-v:execute($EDITOR {} &> /dev/tty)"
 zoxide init fish | source
+if test -d "$HOME/.local/share/bob"
+    source "$HOME/.local/share/bob/env/env.fish"
+end
 if test -d "$HOME/.local/bin"
     fish_add_path "$HOME/.local/bin"
 end
@@ -107,4 +112,8 @@ end
 
 if not test "$TERM_PROGRAM" = vscode && not test "$TERM_PROGRAM" = cursor
     starship init fish | source
+end
+
+if test -d /Applications/
+    set -gx GPG_TTY (tty)
 end
