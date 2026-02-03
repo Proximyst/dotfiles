@@ -2,3 +2,9 @@
 __debug_bin*
 # drone-graph output
 .drone.yml.svg
+.nx/
+.envrc
+
+perf.data
+perf.data.old
+flamegraph.svg

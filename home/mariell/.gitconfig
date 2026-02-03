@@ -6,6 +6,7 @@
 [core]
 	pager = delta
 	excludesFile = ~/.config/git/ignore
+	attributesFile = /home/mariell/.config/git/attributes
 [interactive]
 	diffFilter = delta --color-only
 [merge]

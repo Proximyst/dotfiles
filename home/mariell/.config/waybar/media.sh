@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-if [ "$(playerctl status)" = "Playing" ]; then
+#if [ "$(playerctl status)" = "Playing" ]; then
 	artist="$(playerctl metadata xesam:artist)"
 	title="$(playerctl metadata xesam:title)"
 	printf '  '
@@ -15,4 +15,4 @@ if [ "$(playerctl status)" = "Playing" ]; then
 		printf '%s' "$title"
 	fi
 	printf '\n'
-fi
+#fi

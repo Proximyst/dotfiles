@@ -90,7 +90,7 @@
         "interval": 5
     },
     "memory": {
-        "format": " {used:0.1f}GiB",
+        "format": "{used:0.1f}GiB",
         "interval": 5,
         "tooltip": false
     },
@@ -109,7 +109,7 @@
     "network": {
         "interval": 30,
         "format-wifi": "",
-        "format-ethernet": "",
+        "format-ethernet": "",
         "format-disconnected": "",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip-format-disconnected": "Disconnected",

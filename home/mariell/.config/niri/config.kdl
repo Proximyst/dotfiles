@@ -38,7 +38,7 @@ input {
     mouse {
         // off
         // natural-scroll
-        accel-speed 0.2
+        accel-speed 0
         accel-profile "flat"
         // scroll-method "no-scroll"
     }
@@ -266,18 +266,18 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "bash" "-c" "RUSTLOG=info,xwayland_satellite::xstate::selection=debug xwayland-satellite 2>&1 | tee /tmp/xwayland-satellite.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "kanshi 2>&1 | tee /tmp/kanshi.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "waybar 2>&1 | tee /tmp/waybar.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "brave 2>&1 | tee /tmp/brave.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "slack 2>&1 | tee /tmp/slack.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "tidal-hifi 2>&1 | tee /tmp/tidal-hifi.$EPOCHSECONDS.log"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "kanshi"
+spawn-at-startup "waybar"
+spawn-at-startup "zen-browser"
+spawn-at-startup "tidal-hifi"
 spawn-at-startup "xrdb" "-merge" "~/.Xresources"
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
-spawn-at-startup "bash" "-c" "mako 2>&1 | tee /tmp/mako.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "swaybg -i /home/mariell/.config/niri/geiranger.jpg -m fill 2>&1 | tee /tmp/swaybg.$EPOCHSECONDS.log"
-spawn-at-startup "bash" "-c" "ELECTRON_OZONE_PLATFORM_HINT=x11 1password --silent 2>&1 | tee /tmp/1password.$EPOCHSECONDS.log"
+spawn-at-startup "mako"
+spawn-at-startup "swaybg" "-i" "/home/mariell/.config/niri/geiranger.jpg" "-m" "fill"
+spawn-at-startup "bash" "-c" "ELECTRON_OZONE_PLATFORM_HINT=x11 1password --silent"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "before-sleep" "swaylock -f"
 
 environment {
     DISPLAY ":1"
@@ -378,7 +378,7 @@ binds {
     Mod+Return { spawn "wezterm"; }
     Mod+D { spawn "wofi" "--show" "drun"; }
     Super+Shift+Ctrl+L { spawn "swaylock"; }
-    Mod+B { spawn "bash" "-c" "brave 2>&1 | tee /tmp/brave.$EPOCHSECONDS.log"; }
+    Mod+B { spawn "bash" "-c" "zen-browser 2>&1 | tee /tmp/zen.$EPOCHSECONDS.log"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

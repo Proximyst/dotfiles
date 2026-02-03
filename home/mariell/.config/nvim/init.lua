@@ -1,2 +1,2 @@
--- vim: set ff=unix autoindent ts=2 sw=2 tw=0 et :
-require('entrypoint')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
