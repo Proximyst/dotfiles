@@ -1,9 +1,9 @@
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-abbr --add g 'git'
-abbr --add v 'nvim'
-abbr --add vi 'nvim'
-abbr --add vim 'nvim'
-abbr --add q 'exit'
+abbr --add g git
+abbr --add v nvim
+abbr --add vi nvim
+abbr --add vim nvim
+abbr --add q exit
 abbr --add ls 'eza -F'
 abbr --add l 'eza -F -l --git --icons'
 abbr --add ll 'eza -F -l --git --icons -h'
@@ -65,31 +65,46 @@ abbr --add gwt 'git worktree'
 abbr --add gwtl 'git worktree list'
 abbr --add gwta 'git worktree add'
 abbr --add gwtr 'git worktree remove'
-abbr --add copy 'wl-copy'
-abbr --add paste 'wl-paste'
-abbr --add k 'kubectl'
-abbr --add kx 'kubectx'
+abbr --add grt 'git rev-parse --show-toplevel'
+abbr --add copy wl-copy
+abbr --add paste wl-paste
+abbr --add k kubectl
+abbr --add kx kubectx
 abbr --add kxc 'kubectx --current'
-abbr --add kn 'kubens'
+abbr --add kn kubens
 abbr --add knc 'kubens --current'
-abbr --add calc 'fend'
+abbr --add calc fend
+abbr --add ts tailscale
 
-set -g async_prompt_functions _pure_prompt_git
+abbr --add cg 'cd ~/work/grafana'
+abbr --add cge 'cd ~/work/grafana-enterprise'
+
+#set -g async_prompt_functions _pure_prompt_git
 set fish_greeting
-set pure_enable_container_detection false
-set pure_enable_nixdevshell true
-set pure_symbol_nixdevshell_prefix (string join "" \uf2dc " ")
-set pure_symbol_prompt '$'
-set pure_separate_prompt_on_error true
-set pure_show_jobs true
-set pure_enable_k8s true
+#set pure_enable_container_detection false
+#set pure_enable_nixdevshell true
+#set pure_symbol_nixdevshell_prefix (string join "" \uf2dc " ")
+#set pure_symbol_prompt '$'
+#set pure_separate_prompt_on_error true
+#set pure_show_jobs true
+#set pure_enable_k8s true
 fzf_configure_bindings --directory=\cf --git_log= --git_status=\cs --processes= --variables=
 set fzf_diff_highlighter delta --paging=never --width=100
 set fzf_directory_opts --bind "ctrl-v:execute($EDITOR {} &> /dev/tty)"
 zoxide init fish | source
 if test -d "$HOME/.local/bin"
-  fish_add_path "$HOME/.local/bin"
+    fish_add_path "$HOME/.local/bin"
+end
+if test -d "$HOME/.cargo/bin"
+    fish_add_path "$HOME/.cargo/bin"
 end
 if test -d "$HOME/go/bin"
-  fish_add_path "$HOME/go/bin"
+    fish_add_path "$HOME/go/bin"
+end
+if test -d "$HOME/.bun/bin"
+    fish_add_path "/home/mariell/.bun/bin"
+end
+
+if not test "$TERM_PROGRAM" = vscode && not test "$TERM_PROGRAM" = cursor
+    starship init fish | source
 end
