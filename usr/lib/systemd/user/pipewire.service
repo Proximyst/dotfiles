@@ -13,16 +13,15 @@ Description=PipeWire Multimedia Service
 #
 # After=pipewire.socket is not needed, as it is already implicit in the
 # socket-service relationship, see systemd.socket(5).
-Requires=pipewire.socket
+Requires=pipewire.socket dbus.service 
 ConditionUser=!root
 
 [Service]
 LockPersonality=yes
 MemoryDenyWriteExecute=yes
 NoNewPrivileges=yes
-RestrictNamespaces=yes
 SystemCallArchitectures=native
-SystemCallFilter=@system-service
+SystemCallFilter=@system-service mincore
 Type=simple
 ExecStart=/usr/bin/pipewire
 Restart=on-failure

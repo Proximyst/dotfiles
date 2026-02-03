@@ -8,9 +8,6 @@ After=graphical-session-pre.target
 Wants=xdg-desktop-autostart.target
 Before=xdg-desktop-autostart.target
 
-Wants=pipewire.service
-After=pipewire.service
-
 [Service]
 Slice=session.slice
 Type=notify
