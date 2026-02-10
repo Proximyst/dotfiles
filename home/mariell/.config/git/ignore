@@ -10,3 +10,6 @@ perf.data.old
 flamegraph.svg
 
 .DS_Store
+
+**/.claude/settings.local.json
+**/.claude/plans/
