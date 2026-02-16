@@ -1,0 +1,3 @@
+theme = Catppuccin Macchiato
+font-size = 15
+shell-integration-features = ssh-terminfo,ssh-env

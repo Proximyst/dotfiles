@@ -1,3 +1,5 @@
+set -gx EDITOR nvim
+
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 abbr --add g git
 abbr --add v nvim
@@ -66,8 +68,13 @@ abbr --add gwtl 'git worktree list'
 abbr --add gwta 'git worktree add'
 abbr --add gwtr 'git worktree remove'
 abbr --add grt 'git rev-parse --show-toplevel'
-abbr --add copy wl-copy
-abbr --add paste wl-paste
+if test -d /Applications/
+    abbr --add copy pbcopy
+    abbr --add paste pbpaste
+else
+    abbr --add copy wl-copy
+    abbr --add paste wl-paste
+end
 abbr --add k kubectl
 abbr --add kx kubectx
 abbr --add kxc 'kubectx --current'
