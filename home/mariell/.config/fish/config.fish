@@ -86,6 +86,7 @@ abbr --add ts tailscale
 if test -d "$HOME/work/grafana"
     abbr --add cg 'cd ~/work/grafana'
     abbr --add cge 'cd ~/work/grafana-enterprise'
+    abbr --add cdt 'cd ~/work/deployment_tools'
 end
 
 #set -g async_prompt_functions _pure_prompt_git
