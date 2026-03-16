@@ -275,7 +275,7 @@ spawn-at-startup "xrdb" "-merge" "~/.Xresources"
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
 spawn-at-startup "mako"
-spawn-at-startup "swaybg" "-i" "/home/mariell/.config/niri/geiranger.jpg" "-m" "fill"
+spawn-at-startup "awww-daemon"
 spawn-at-startup "bash" "-c" "ELECTRON_OZONE_PLATFORM_HINT=x11 1password --silent"
 spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "before-sleep" "swaylock -f"
 
